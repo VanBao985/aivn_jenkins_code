@@ -43,7 +43,7 @@ pipeline {
                 echo 'Testing model training and predictions...'
                     sh '''
                         . venv/bin/activate
-                        pytest tests/test_model.py -v --tb=short
+                        pytest test/test_model.py -v --tb=short
                     '''
                   }
         }
@@ -53,7 +53,7 @@ pipeline {
                 echo 'Testing FastAPI application...'
                 sh '''
                     . venv/bin/activate
-                    pytest tests/test_app.py -v --tb=short
+                    pytest test/test_app.py -v --tb=short
                 '''
             }
         }
