@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = "your-dockerhub-username/iris-ml-api"
+        DOCKER_IMAGE = "vanbaocao/iris-ml-api"
         DOCKER_TAG = "${BUILD_NUMBER}"
         DOCKER_CREDENTIALS_ID = "dockerhub-credentials"
     }
@@ -94,15 +94,15 @@ pipeline {
 
     post {
         success {
-         echo 'Pipeline completed successfully!'
-         echo "Docker image pushed: ${DOCKER_IMAGE}:${DOCKER_TAG}"
+            echo 'Pipeline completed successfully!'
+            echo "Docker image pushed: ${DOCKER_IMAGE}:${DOCKER_TAG}"
         }
         failure {
-         echo 'Pipeline failed!'
+            echo 'Pipeline failed!'
         }
         always {
-         echo 'Cleaning workspace...'
-         cleanWs()
+            echo 'Cleaning workspace...'
+            cleanWs()
         }
     }
 }
